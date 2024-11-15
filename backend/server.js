@@ -13,18 +13,18 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 
+const allowedOrigins = ['https://final-projects-ivory.vercel.app'];
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'https://final-projects-ivory.vercel.app/', // Replace this with your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-  credentials: true, // Allow cookies and credentials to be sent
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true, // If you need cookies or authentication headers
 }));
-
-
-// Define your routes
-app.get('/', (req, res) => {
-  res.send('CORS is configured successfully!');
-});
 
 
 app.use(express.json());
