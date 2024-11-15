@@ -12,15 +12,14 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
-// middleware
-const corsOptions = {
-  origin: 'https://final-projects-ivory.vercel.app', // Allow your frontend origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods
-  credentials: true, // Allow cookies/credentials
-};
 
-// Use the cors middleware with the options
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: process.env.CLIENT_URL || 'https://final-projects-ivory.vercel.app/', // Replace this with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true, // Allow cookies and credentials to be sent
+}));
+
 
 // Define your routes
 app.get('/', (req, res) => {
