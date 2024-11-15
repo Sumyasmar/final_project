@@ -21,10 +21,11 @@ function page() {
   }
 
   return (
-    <div className="auth-page w-full h-full flex justify-center items-center">
+    <div className="auth-page w-full h-screen flex justify-center items-center px-4 sm:px-8 md:px-16">
       <LoginForm />
     </div>
   );
+  
 }
 
 export default page;
