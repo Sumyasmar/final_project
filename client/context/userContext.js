@@ -9,7 +9,7 @@ const UserContext = React.createContext();
 axios.defaults.withCredentials = true;
 
 export const UserContextProvider = ({ children }) => {
-  const serverUrl = "https://threemtt-final-project-1.onrender.com";
+  const serverUrl = "https://final-projects-p2df.onrender.com";
 
   const router = useRouter();
 
