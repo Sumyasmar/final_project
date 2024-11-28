@@ -13,7 +13,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 
-const allowedOrigins = ['https://final-projects-ivory.vercel.app'];
+const allowedOrigins = ['https://final-project-eight-liard.vercel.app'];
 
 app.use(cors({
     origin: (origin, callback) => {
